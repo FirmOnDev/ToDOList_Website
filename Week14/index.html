@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+<style>
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background-color: #e9ecef; }
+    .card { display: flex; gap: 30px; padding: 30px; background-color: white; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+
+    .profile { flex: 1; text-align: center; }
+    .profile img { border-radius: 50%; object-fit: cover; height: 140px; border: 4px solid tomato; }
+
+    .todo { flex: 1; }
+    .add-row { display: flex; gap: 8px; margin-bottom: 12px; }
+    .add-row input { flex: 1; padding: 8px; }
+
+    ul { list-style: none; padding: 0; margin: 0; }
+    li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 0; }
+</style>
+</head>
+<body>
+    <div class="card">
+        <div class="profile">
+            <img src="20250322_203203.jpg" alt="Mypic" width="140">
+            <h1>Jaruphat Paethong</h1>
+            <p>Student ID : 69070020 / IT KMITL</p>
+            <p>I love to listen jp music and so larp about IT things</p>
+            <a href="https://github.com/FirmOnDev">GitHub</a>
+        </div>
+        <div class="todo">
+            <h2>To-do List</h2>
+            <div class="add-row">
+                <input type="text" id="todo-input" placeholder="Type your plan!">
+                <button type="button" id="add-btn">Add</button>
+            </div>
+            <ul id="todo-list">
+                <li><span>Play Valorant</span><button type="button">Delete</button></li>
+                <li><span>Play PJSK</span><button type="button">Delete</button></li>
+                <li><span>Watch Mumei...not more T_T</span><button type="button">Delete</button></li>
+                <li><span>Listen JP Music</span><button type="button">Delete</button></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
