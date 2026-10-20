@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaruphat Paethong | Profile + To-do List</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background-color: #17100b;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(255, 122, 26, 0.18), transparent 45%),
+      radial-gradient(circle at 85% 85%, rgba(255, 122, 26, 0.12), transparent 45%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    color: #f6ece1;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 880px;
+    display: flex;
+    background-color: #26180f;
+    border: 1px solid #4d2f1b;
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 4px 24px rgba(255, 122, 26, 0.15);
+    overflow: hidden;
+  }
+
+  .profile {
+    flex: 1;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(165deg, #38220f 0%, #26180f 100%);
+    border-right: 1px solid #4d2f1b;
+  }
+
+  .profile img {
+    width: 156px;
+    height: 156px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ff7a1a;
+    box-shadow: 0 0 0 6px rgba(255, 122, 26, 0.22), 0 12px 28px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    background-color: #17100b;
+  }
+
+  .profile h1 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    color: #fff4e6;
+    margin-bottom: 8px;
+  }
+
+  .profile p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .student {
+    color: #ffa94d;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .bio {
+    color: #d9c5ae;
+    margin-bottom: 22px;
+  }
+
+  .profile a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #ff7a1a;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 10px 28px;
+    border-radius: 999px;
+  }
+
+  .profile a:hover {
+    background-color: #ff8f3d;
+  }
+
+  .todo {
+    flex: 1.2;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .todo h2 {
+    font-size: 1.5rem;
+    color: #ffb066;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .todo h2::before {
+    content: "";
+    width: 8px;
+    height: 28px;
+    background-color: #ff7a1a;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  .add-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  #todo-input {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: 1px solid #5c3a22;
+    background-color: #170f0a;
+    color: #f6ece1;
+    font-size: 0.95rem;
+    outline: none;
+  }
+
+  #todo-input::placeholder {
+    color: #8d7560;
+  }
+
+  #todo-input:focus {
+    border-color: #ff7a1a;
+    box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.28);
+  }
+
+  #add-btn {
+    padding: 11px 22px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff7a1a;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  #add-btn:hover {
+    background-color: #ff8f3d;
+  }
+
+  #todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #todo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background-color: #170f0a;
+    border: 1px solid #4d2f1b;
+    border-radius: 12px;
+    padding: 12px 12px 12px 16px;
+    font-size: 0.95rem;
+    color: #f1e3d1;
+  }
+
+  #todo-list li:hover {
+    border-color: #ff7a1a;
+  }
+
+  #todo-list li button {
+    flex-shrink: 0;
+    background-color: transparent;
+    border: 1px solid #7a3a2a;
+    color: #ff9a7a;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  #todo-list li button:hover {
+    background-color: #a83226;
+    border-color: #a83226;
+    color: #ffffff;
+  }
+
+  @media (max-width: 720px) {
+    .card {
+      flex-direction: column;
+    }
+    .profile {
+      border-right: none;
+      border-bottom: 1px solid #4d2f1b;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="profile">
+      <img src="20250322_203203.jpg" alt="รูปโปรไฟล์ของ Jaruphat Paethong">
+      <h1>Jaruphat Paethong</h1>
+      <p class="student">รหัสนักศึกษา 69070020 สาขา IT KMITL</p>
+      <p class="bio">I love to listen jp music and so larp about IT things</p>
+      <a href="https://github.com/FirmOnDev" target="_blank" rel="noopener">GitHub</a>
+    </div>
+
+    <div class="todo">
+      <h2>To-do List</h2>
+      <div class="add-row">
+        <input type="text" id="todo-input" placeholder="เพิ่มงานใหม่...">
+        <button type="button" id="add-btn">เพิ่ม</button>
+      </div>
+      <ul id="todo-list">
+        <li><span>ทบทวนเลคเชอร์วิช IT Fundamentals</span><button type="button">ลบ</button></li>
+        <li><span>ฝึกเขียน HTML + CSS วันละ 30 นาที</span><button type="button">ลบ</button></li>
+        <li><span>จัดโต๊ะคอมและทำความสะอาดห้อง</span><button type="button">ลบ</button></li>
+        <li><span>ฟังเพลงญี่ปุ่นก่อนนอน 10 เพลง</span><button type="button">ลบ</button></li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
